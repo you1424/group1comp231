@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"><!--this is necesarry to use thmeleaf-->
+
+<head>
+	<link href="style_sheet.css" rel="stylesheet" /><!--change this later-->
+	<meta charset="ISO-8859-1">
+	<title>COMP303Assignment2 Login</title>
+</head>
+<form id="loginForm" name="loginForm" action="#" th:action="@{/loginedPage}" th:object="${student}" method="post">
+
+	<body>
+		<img src="yuichipics.jpg" style="width: 600px; height: 500px" alt="yuichi"><!--change this later-->
+		<h1>Sign in to your Account</h1>
+		<table>
+			<tr>
+				<td>
+					<p>ID:</p>
+				</td>
+				<td><input type="text" th:field="*{userName}" /></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Password:</p>
+				</td>
+				<td><input type="password" th:field="*{password}" /></td>
+			</tr>
+			<tr>
+				<td>
+					<p><input type="submit" value="Login" class="submitButton" /></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><a href="studentRegistrationForm">Sign up</a></p>
+				</td>
+			</tr>
+
+		</table>
+	</body>
+</form>
+
+
+</html>

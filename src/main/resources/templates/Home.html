@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"><!--this is necesarry to use thmeleaf-->
+
+<head>
+	<link href="style_sheet.css" rel="stylesheet" /><!--change this later-->
+	<meta charset="ISO-8859-1">
+	<title>COMP303Assignment2 index</title>
+</head>
+<form id="loginForm" name="loginForm" action="#" th:action="@{/Order}" th:object="${order}" method="post">
+
+	<body>
+		<img src="yuichipics.jpg" style="width: 600px; height: 500px" alt="yuichi"><!--change this later-->
+		<h1>Application Name</h1>
+		<table>
+			<tr>
+				<td>
+					<p><a href="loginForm">Login</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><a href="employeeRegistrationForm">Sign up</a></p>
+				</td>
+			</tr>
+		</table>
+	</body>
+</form>
+
+
+</html>
