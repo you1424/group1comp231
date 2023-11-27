@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"><!--this is necesarry to use thmeleaf-->
-
+<html xmlns:th="http://thymeleaf.org">
 <head>
-	<link href="style_sheet.css" rel="stylesheet" /><!--change this later-->
-	<meta charset="ISO-8859-1">
-	<title>COMP303Assignment2 index</title>
+    <link href="style_sheet.css" rel="stylesheet" />
+    <meta charset="ISO-8859-1">
+    <title>COMP303Assignment2 index</title>
 </head>
-<form id="loginForm" name="loginForm" action="#" th:action="@{/Order}" th:object="${order}" method="post">
+<body>
+    <form id="loginForm" name="loginForm" action="#" th:action="@{/toEmployeeForm}" th:object="${employee}" method="post">
+        <img src="yuichipics.jpg" style="width: 600px; height: 500px" alt="yuichi">
+        <h1>Employee Form</h1>
 
-	<body>
-		<img src="yuichipics.jpg" style="width: 600px; height: 500px" alt="yuichi"><!--change this later-->
-		<h1>Employee Form</h1>
-		
-	</body>
-</form>
-
-
+        <input type="text" th:field="*{userName}" placeholder="User Name" />
+        <input type="password" th:field="*{password}" placeholder="Password" />
+        <button type="submit">Login</button>
+    </form>
+</body>
 </html>
