@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <link href="style_sheet.css" rel="stylesheet" />
+    <meta charset="ISO-8859-1">
+    <title>HR Dashboard</title>
+</head>
+<body>
+	<form id="hrDashboard" name="hrDashboard" action="#" th:action="@{/login}" th:object="${employee}" method="post">
+    <h1>Welcome to HR Dashboard, <span th:text="${firstName}"></span>!</h1>
+	</form>
+    
+</body>
+</html>
