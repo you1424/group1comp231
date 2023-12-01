@@ -6,9 +6,10 @@
 	<meta charset="ISO-8859-1">
 	<title>COMP303Assignment2 Login</title>
 </head>
-<form id="loginForm" name="loginForm" action="#" th:action="@{/loginedPage}" th:object="${student}" method="post">
 
-	<body>
+<body>
+	<form id="loginForm" name="loginForm" action="#" th:action="@{/login}" th:object="${employee}" method="post">
+
 		<img src="yuichipics.jpg" style="width: 600px; height: 500px" alt="yuichi"><!--change this later-->
 		<h1>Sign in to your Account</h1>
 		<table>
@@ -36,8 +37,9 @@
 			</tr>
 
 		</table>
-	</body>
-</form>
+	</form>
+</body>
+
 
 
 </html>
