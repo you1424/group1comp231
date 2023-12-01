@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `group1_comp231` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `group1_comp231`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: group1_comp231
@@ -38,7 +36,7 @@ CREATE TABLE `grade` (
 
 LOCK TABLES `grade` WRITE;
 /*!40000 ALTER TABLE `grade` DISABLE KEYS */;
-INSERT INTO `grade` VALUES (1,'Nomal Stuff',1.00),(2,'Supervisor',1.20),(3,'Manager',1.50);
+INSERT INTO `grade` VALUES (1,'Nomal Stuff',1.00),(2,'Supervisor',1.20),(3,'Manager',1.50),(4,'Administrator',1.10);
 /*!40000 ALTER TABLE `grade` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-18 12:33:08
+-- Dump completed on 2023-12-01 18:28:14
