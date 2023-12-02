@@ -34,33 +34,85 @@ public class LoginController {
 		Employee employee = new Employee(); 
 		model.addAttribute("employee", employee);
 		return "LoginForm";
+		
 	}
 
-	@PostMapping("/toEmployeeForm")
-	public String loginToEmployeeForm(Model model, @ModelAttribute Employee tempEmployee) {
-	    Employee employee = employeeRepository.findForLogin(tempEmployee.getUserName(), tempEmployee.getPassword()); 
+	@PostMapping("/login")
+	public String loginToDepartmentForm(Model model, @RequestParam String userName, @RequestParam String password) {
+	    // get login info from database
+	    Employee employee = employeeRepository.findForLogin(userName, password);
+
 	    if (employee != null) {
-	        userName = employee.getUserName();
+	        // set user information
 	        model.addAttribute("firstName", employee.getFirstName());
 	        model.addAttribute("lastName", employee.getLastName());
 
-	        // To change the html by depertmentID
-	        switch (employee.getDepartmentId()) {
-		        case 1:
-		            return "redirect:/hrDashboard"; // HR
-		        case 2:
-		            return "redirect:/accountingDashboard"; // Accounting
-		        case 3:
-		            return "redirect:/itDashboard"; // IT
-		        case 4:
-		            return "redirect:/businessDashboard"; // Business
-		        default:
-		            return "EmployeeForm"; // EmployeeForm Defo
-	    }
+	        // redirect to dash board based by department and grade
+	        String dashboard = getDashboardForEmployee(employee);
+	        return dashboard != null ? dashboard : "EmployeeForm";
 	    } else {
-	        // file login
-	        return "LoginFailed"; // 
+	        // when fail log-in
+	        return "LoginFailed";
 	    }
 	}
 
-}
+	//  get dash board based by employee's department and grade
+	private String getDashboardForEmployee(Employee employee) {
+	    String department = getDepartmentName(employee.getDepartmentId());
+	    String grade = getGradeName(employee.getGradeId());
+
+	    // generate dash board name with department and grade
+	    String dashboard = department + grade + "Dashboard";
+	    if (isValidDashboard(dashboard)) {
+	        return dashboard;
+	    }
+
+	    // Default dash board if no specific department or job title is specified
+	    return "EmployeeForm";
+	}
+
+	// Method to get department name from department ID
+	private String getDepartmentName(int departmentId) {
+		// Implement the logic to get the department name from the database
+		// In the actual project, add logic to retrieve from the database
+	    switch (departmentId) {
+	        case 1:
+	            return "Hr";
+	        case 2:
+	            return "Accounting";
+	        case 3:
+	            return "It";
+	        case 4:
+	            return "Business";
+	        default:
+	            return "Unknown";
+	    }
+	}
+
+	// Method to get the job title from the job title value
+	private String getGradeName(int grade) {
+		// Implement logic to retrieve job title from database
+	    switch (grade) {
+	        case 1:
+	            return "";
+	        case 2:
+	            return "Supervisor";
+	        case 3:
+	            return "Manager";
+	        case 4:
+	            return "Administrator";
+	        default:
+	            return "Unknown";
+	    }
+	}
+	
+	// Method to check if dash board exists
+	private boolean isValidDashboard(String dashboard) {
+		// Implement logic to check if dash board exists
+	    return true;
+	}
+
+	   
+	}
+
+
